@@ -14,21 +14,31 @@
         "app/admin-books"
     ],
     "dependencies": {
-        "@sap/cds": "^6.3.2",
-        "@sap/cds-dk": "^6.4.0",
-        "@sap/cds-odata-v2-adapter-proxy": "^1.9.0",
-        "@sap/xssec": "^3",
-        "express": "^4.17.1",
-        "passport": ">=0.4.1",
-        "sqlite3": "^5"
+        "@sap/cds": "^9.1.0",
+        "@sap/cds-dk": "^9.1.0",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+        "@sap/xssec": "^4",
+        "express": "^5.1.0",
+        "passport": ">=0.7.0",
+        "sqlite3": "^5.1.7"
     },
     "devDependencies": {
-        "@sap/ux-specification": "^1.102.14",
+        "@cap-js/sqlite": "^2.0.2",
+        "@sap/ux-specification": "^1.136.0",
+        "@wdio/cli": "^8.37.0",
+        "@wdio/local-runner": "^8.37.0",
+        "@wdio/mocha-framework": "^8.37.0",
+        "@wdio/spec-reporter": "^8.37.0",
         "axios": "^1",
-        "chai": "^4.3.4",
-        "chai-as-promised": "^7.1.1",
+        "chai": "^5.2.0",
+        "chai-as-promised": "^8.0.1",
         "chai-subset": "^1.6.0",
-        "semver": "^7"
+        "chromedriver": "^146.0.2",
+        "rimraf": "^6.0.1",
+        "semver": "^7",
+        "wdio-chromedriver-service": "^8.1.1",
+        "wdio-timeline-reporter": "^5.1.4",
+        "wdio-ui5-service": "^2.2.1"
     },
     "scripts": {
         "genres": "cds serve test/genres.cds",
@@ -36,10 +46,12 @@
         "watch": "cds watch",
         "undeploy": "cf undeploy capire-bookshop --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources && mbt build -t gen --mtar mta.tar",
-        "deploy": "cf deploy gen/mta.tar -f"
+        "deploy": "cf deploy gen/mta.tar -f",
+        "wdi5": "wdio app/admin-books/webapp/test/wdi5/wdio.conf.js",
+        "wdi5:debug": "node --inspect-brk ./node_modules/@wdio/cli/bin/wdio.js app/admin-books/webapp/test/wdi5/wdio.conf.js"
     },
     "engines": {
-        "node": "^18"
+        "node": ">=18 <=22"
     },
     "cds": {
         "features": {

@@ -11,7 +11,7 @@
         },
         "dataSources": {
             "AdminService": {
-                "uri": "admin/",
+                "uri": "odata/v4/admin/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"
@@ -31,7 +31,8 @@
     "sap.ui5": {
         "dependencies": {
             "libs": {
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.ushell": {}
             }
         },
         "models": {
