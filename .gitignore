@@ -8,3 +8,5 @@ mta_archives
 resources
 wdi5.db
 .cdsrc-private.json
+wdi5.db-shm
+wdi5.db-wal
